@@ -5,6 +5,10 @@ inputs:
   deploy-key:
     description: 'The key found at "https://www.shuttle.rs/login"'
     required: true
+  beta:
+    description: "If Deployment to shuttle beta"
+    required: false
+    default: "false"
   cargo-shuttle-version:
     description: "Version of cargo-shuttle"
     required: false
@@ -71,4 +75,5 @@ runs:
       working-directory: ${{ inputs.working-directory }}
       env:
         SHUTTLE_API_KEY: ${{ inputs.deploy-key }}
+        SHUTTLE_BETA: ${{inputs.beta}}
       shell: bash
